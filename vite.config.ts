@@ -15,4 +15,17 @@ export default defineConfig({
       },
     }),
   ],
+  // Configurazione proxy per il backend
+  server: {
+    proxy: {
+      "/auth": {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+      },
+      "/api": {
+      target: "http://localhost:8080",
+      changeOrigin: true,
+      },
+    },
+  },
 });
